@@ -218,6 +218,56 @@ def johntheripper():
 def hashid():
     pass
 
+def git():
+
+    git_text="""
+
+To create a repo on github from cli
+==> gh repo create
+
+To initialize a repository
+==> git init
+
+To add the 
+
+To add files in the staging area
+==> git add .
+
+To commit the changes locally
+==> git commit -m "your message"
+
+To push the changes from local to remote repository
+==> git push -u origin main
+
+To connect the local repository to the remote (GitHub)
+==> git remote add origin git@github.com:NullByte007/<repo_name.git>
+
+If the remote repo already has some data and you want to update in local
+(If you haven't made many local changes and just want to sync: to remote)
+==> git pull --rebase origin main 
+
+
+If you don’t need any local changes and want to reset your local branch to match the remote repository
+==> git fetch origin
+==> git reset --hard origin/main  # Replace 'main' with the branch name
+==> git clean -fd  # (Optional) Deletes untracked files and directories
+
+
+Accidently set incorrect remote origin url
+==> git remote remove origin
+==> git remote add origin git@github.com:your-username/myproject.git
+
+verify the remote origin url
+==> git remote -v
+
+Difference in :
+==> git remote add origin <URL>	     :  Adds a new remote repository (if it doesn’t exist yet).
+==> git remote set-url origin <URL>  : 	Changes the URL of an existing remote repository.
+
+
+"""
+    print(git_text)
+
 def main():
     # Create the argument parser
     parser = argparse.ArgumentParser(description="A Kali helper to help you with command syntax")
@@ -229,7 +279,7 @@ def main():
     
     # Parse the arguments
     args = parser.parse_args()
-    command_dictionary={'ffuf':ffuf,'sed':sed, 'awk':awk, 'rsync':rsync, 'scp':scp, 'which':which, 'find':find, 'wfuzz':wfuzz, 'openssl':openssl, 'hashcat':hashcat, 'hydra':hydra, 'johntheripper':johntheripper, 'hashid':hashid }
+    command_dictionary={'ffuf':ffuf,'sed':sed, 'awk':awk, 'rsync':rsync, 'scp':scp, 'which':which, 'find':find, 'wfuzz':wfuzz, 'openssl':openssl, 'hashcat':hashcat, 'hydra':hydra, 'johntheripper':johntheripper, 'hashid':hashid, 'git':git }
 
     
     command_dictionary[args.command]()
